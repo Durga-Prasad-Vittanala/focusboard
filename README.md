@@ -242,7 +242,7 @@ function useLocalStorage(key, initialValue) {
 
 ## GitHub Repository URL
 
-> 🔗 **https://github.com/Sricharan990/focusboard.git**
+> 🔗 **https://github.com/Durga-Prasad-Vittanala/focusboard**
 
 ---
 
