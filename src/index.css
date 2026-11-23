@@ -1,0 +1,666 @@
+
+/* ==============================
+   FOCUSBOARD - GLOBAL STYLES
+============================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Inter', sans-serif;
+
+  /* Brand Colors */
+  --primary: #6554F5;
+  --primary-dark: #5140DB;
+  --primary-light: #EEEAFE;
+
+  /* Background Colors */
+  --bg-main: #F8F8FC;
+  --bg-card: #FFFFFF;
+  --bg-sidebar: #FFFFFF;
+
+  /* Text Colors */
+  --text-primary: #20243A;
+  --text-secondary: #85899C;
+  --text-muted: #A5A8B7;
+
+  /* Status Colors */
+  --success: #20B486;
+  --warning: #F59E0B;
+  --danger: #EF5350;
+
+  /* Borders */
+  --border: #ECECF2;
+
+  /* Layout */
+  --sidebar-width: 250px;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg-main);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Responsive breakpoints */
+
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 0px;
+  }
+}
+
+/* =================================
+   GLOBAL LAYOUT
+================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* MAIN LAYOUT */
+
+.main-layout {
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+  flex: 1;
+  min-width: 0;
+}
+
+.main-content {
+  padding: 35px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.main-content h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.main-content p {
+  color: var(--text-secondary);
+}
+
+/* TABLET - 768px */
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 22px;
+  }
+}
+
+/* MOBILE - 480px */
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 15px;
+  }
+
+  .welcome-section h1 {
+    font-size: 23px;
+  }
+
+  .welcome-section p {
+    font-size: 13px;
+  }
+
+  .app {
+    flex-direction: column;
+  }
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  background: white;
+  color: var(--text-primary);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-error {
+  color: #D94B4B;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.cancel-btn,
+.save-btn {
+  padding: 11px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--text-secondary);
+}
+
+.save-btn {
+  border: none;
+  background: var(--primary);
+  color: white;
+}
+
+@media (max-width: 480px) {
+  .task-modal {
+    padding: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-actions button {
+    flex: 1;
+  }
+}
+
+
+/* ==============================
+   TASK STATUS DROPDOWN
+============================== */
+
+.status-select {
+  padding: 5px 9px;
+  border: none;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+.status-select.to-do {
+  background: #F0F0F4;
+  color: #777789;
+}
+
+.status-select.in-progress {
+  background: #FFF3D9;
+  color: #C58519;
+}
+
+.status-select.completed {
+  background: #E3F7ED;
+  color: #199968;
+}
+
+.status-select:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+
+/* ==============================
+   SEARCH BAR
+============================== */
+
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  height: 46px;
+  margin: 28px 0 20px;
+  padding: 0 14px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  gap: 10px;
+}
+
+.search-icon {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.search-container input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.search-container input::placeholder {
+  color: var(--text-secondary);
+}
+
+.search-container:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.clear-search {
+  display: grid;
+  place-items: center;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.clear-search:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 480px) {
+  .search-container {
+    max-width: 100%;
+  }
+}
+
+
+/* ==============================
+   STATUS TABS AND FILTERS
+============================== */
+
+.filter-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.status-tabs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.filter-tab {
+  padding: 9px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.filter-tab:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.filter-tab.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.filter-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.priority-filter {
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  color: var(--text-primary);
+  font-size: 12px;
+  cursor: pointer;
+  outline: none;
+}
+
+.priority-filter:focus-visible,
+.filter-tab:focus-visible,
+.reset-filter-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.reset-filter-btn {
+  padding: 9px 12px;
+  border: none;
+  background: transparent;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.reset-filter-btn:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .filter-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .filter-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .status-tabs {
+    width: 100%;
+  }
+
+  .filter-tab {
+    flex: 1;
+    padding: 9px 7px;
+    font-size: 11px;
+  }
+
+  .filter-actions {
+    justify-content: space-between;
+  }
+}
+
+/* =================================
+   STEP 15 - RESPONSIVE DESIGN
+================================= */
+
+/* Prevent horizontal overflow */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.main-layout {
+  flex: 1;
+  min-width: 0;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+/* TABLET - 768px */
+
+@media (max-width: 768px) {
+
+  .main-content {
+    padding: 22px;
+  }
+
+  .focus-notes {
+    padding: 24px;
+  }
+
+  .focus-preview {
+    display: none;
+  }
+
+  .filter-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .task-section-header {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .task-card {
+    width: 100%;
+  }
+
+  .task-main {
+    gap: 12px;
+  }
+
+}
+
+/* MOBILE - 480px */
+
+@media (max-width: 480px) {
+
+  .main-content {
+    padding: 15px;
+  }
+
+  .welcome-section h1 {
+    font-size: 23px;
+  }
+
+  .welcome-section p {
+    font-size: 13px;
+  }
+
+  /* Sidebar */
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Focus Notes */
+
+  .focus-notes {
+    padding: 20px;
+    min-height: 180px;
+  }
+
+  .focus-text h2 {
+    font-size: 21px;
+  }
+
+  .carousel-controls {
+    right: 15px;
+    bottom: 15px;
+  }
+
+  /* Task section */
+
+  .task-section-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .add-task-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .task-main {
+    flex-direction: column;
+  }
+
+  .task-actions {
+    justify-content: flex-end;
+  }
+
+  /* Search */
+
+  .search-container {
+    max-width: 100%;
+  }
+
+  /* Filters */
+
+  .filter-toolbar {
+    width: 100%;
+  }
+
+  .status-tabs {
+    width: 100%;
+  }
+
+  .filter-tab {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .filter-actions {
+    width: 100%;
+  }
+
+  .priority-filter {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Forms */
+
+  .task-form,
+  .modal-content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 20px;
+  }
+
+}

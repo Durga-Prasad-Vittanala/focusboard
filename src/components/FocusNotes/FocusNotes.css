@@ -1,0 +1,216 @@
+/* FOCUS NOTES CAROUSEL */
+
+.focus-notes {
+  position: relative;
+  background: linear-gradient(110deg, #7057F5, #9B68E9);
+  border-radius: 18px;
+  padding: 28px 35px;
+  color: white;
+  min-height: 190px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.focus-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.focus-text {
+  flex: 1;
+}
+
+.focus-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.focus-text h2 {
+  font-size: 27px;
+  margin: 15px 0 8px;
+}
+
+.focus-text p {
+  color: white;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.carousel-indicators {
+  display: flex;
+  gap: 7px;
+  margin-top: 23px;
+}
+
+.indicator {
+  width: 20px;
+  height: 4px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.4);
+}
+
+.indicator.active {
+  width: 32px;
+  background: white;
+}
+
+.focus-preview {
+  width: 230px;
+}
+
+.preview-card {
+  background: white;
+  color: #303047;
+  border-radius: 12px;
+  padding: 15px;
+  transform: rotate(-3deg);
+  box-shadow: 0 8px 25px rgba(40,20,100,0.15);
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.preview-count {
+  color: var(--primary);
+}
+
+.preview-task {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  margin: 10px 0;
+  color: #77798B;
+}
+
+.check-circle {
+  width: 15px;
+  height: 15px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #E9F8F1;
+  color: #20B486;
+}
+
+.preview-progress {
+  height: 5px;
+  background: #EEEAFB;
+  border-radius: 10px;
+  margin-top: 13px;
+}
+
+.progress-fill {
+  width: 50%;
+  height: 100%;
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+.preview-card small {
+  display: block;
+  text-align: right;
+  margin-top: 6px;
+  font-size: 9px;
+  color: #85899C;
+}
+
+.carousel-controls {
+  position: absolute;
+  right: 30px;
+  bottom: 22px;
+  display: flex;
+  gap: 8px;
+}
+
+.carousel-controls button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  background: transparent;
+  color: white;
+  display: grid;
+  place-items: center;
+}
+
+.carousel-controls button:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* TEMPORARY FOCUS NOTES VISIBILITY TEST */
+.focus-notes {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-height: 220px !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.focus-text,
+.focus-label,
+.focus-text h2,
+.focus-text p,
+.carousel-indicators,
+.carousel-controls {
+  display: block;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: white !important;
+}
+
+.carousel-indicators {
+  display: flex !important;
+}
+
+.carousel-controls {
+  display: flex !important;
+  z-index: 20 !important;
+}
+
+.carousel-controls button {
+  display: grid !important;
+  visibility: visible !important;
+}
+
+@media (max-width: 768px) {
+  .focus-notes {
+    padding: 24px;
+  }
+
+  .focus-preview {
+    display: none;
+  }
+
+  .focus-text h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .focus-notes {
+    padding: 20px;
+    min-height: 180px;
+  }
+
+  .focus-text h2 {
+    font-size: 21px;
+  }
+
+  .carousel-controls {
+    right: 15px;
+    bottom: 15px;
+  }
+}
+
